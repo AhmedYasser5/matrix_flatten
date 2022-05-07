@@ -1,5 +1,4 @@
-#ifndef MATRIX_HEADER
-#define MATRIX_HEADER
+#pragma once
 
 template <typename T> class matrix {
 private:
@@ -15,5 +14,3 @@ public:
 };
 
 #include "matrix.tpp"
-
-#endif

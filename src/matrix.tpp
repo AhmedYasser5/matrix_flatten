@@ -1,13 +1,9 @@
-#include "matrix.h"
-
-// A constructor that creates the matrix
 template <typename T>
 matrix<T>::matrix(const int &n, const int &m, const int &p)
     : _n(n), _m(m), _p(p) {
   data = new T[_n * _m * _p];
 }
 
-// Destructor
 template <typename T> matrix<T>::~matrix() { delete[] data; }
 
 template <typename T>
