@@ -1,20 +1,26 @@
 template <typename T>
 matrix<T>::matrix(const int &n, const int &m, const int &p)
     : _n(n), _m(m), _p(p) {
-  data = new T[_n * _m * _p];
+  _data = new T[_n * _m * _p];
 }
-
-template <typename T> matrix<T>::~matrix() { delete[] data; }
 
 template <typename T>
-int matrix<T>::convertIndex(const int &i, const int &j, const int &k) const {
-  return k + _p * (j + _m * i);
+matrix<T>::matrix(const int &n, const int &m, const int &p, T ***data)
+    : matrix(n, m, p) {
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < m; j++)
+      for (int k = 0; k < p; k++)
+        (*this)(i, j, k) = data[i][j][k];
 }
 
-template <typename T> T &matrix<T>::operator[](const int &ind) {
-  return data[ind];
+template <typename T> matrix<T>::~matrix() { delete[] _data; }
+
+template <typename T>
+T &matrix<T>::operator()(const int &i, const int &j, const int &k) {
+  return _data[k + _p * (j + _m * i)];
 }
 
-template <typename T> const T &matrix<T>::operator[](const int &ind) const {
-  return data[ind];
+template <typename T>
+const T &matrix<T>::operator()(const int &i, const int &j, const int &k) const {
+  return _data[k + _p * (j + _m * i)];
 }
