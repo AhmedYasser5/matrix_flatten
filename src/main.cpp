@@ -6,14 +6,45 @@ using namespace std;
 int main() {
   int n, m, p;
   cin >> n >> m >> p;
-  matrix<int> mat(n, m, p);
-  for (int i = 0; i < n; i++)
-    for (int j = 0; j < m; j++)
+
+  int ***data = new int **[n];
+  cout << "\n{\n";
+  for (int i = 0; i < n; i++) {
+    data[i] = new int *[m];
+    for (int j = 0; j < m; j++) {
+      data[i][j] = new int[p];
+      cout << '\t';
+      for (int k = 0; k < p; k++) {
+        data[i][j][k] = i + j + k;
+        cout << data[i][j][k] << ' ';
+      }
+      cout << endl;
+    }
+    if (i != n - 1)
+      cout << ",\n";
+  }
+  cout << '}';
+
+  matrix<int> mat(n, m, p, data);
+  cout << "\n\n{\n";
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      cout << '\t';
       for (int k = 0; k < p; k++)
-        mat[mat.convertIndex(i, j, k)] = i + j + k;
-  for (int i = 0; i < n; i++)
+        cout << mat(i, j, k) << ' ';
+      cout << endl;
+    }
+    if (i != n - 1)
+      cout << ",\n";
+  }
+  cout << '}';
+
+  for (int i = 0; i < n; i++) {
     for (int j = 0; j < m; j++)
-      for (int k = 0; k < p; k++)
-        cout << mat[mat.convertIndex(i, j, k)] << ' ';
+      delete[] data[i][j];
+    delete[] data[i];
+  }
+  delete[] data;
+
   return 0;
 }
