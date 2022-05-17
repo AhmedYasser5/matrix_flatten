@@ -8,7 +8,7 @@ int main() {
   cin >> n >> m >> p;
 
   int ***data = new int **[n];
-  cout << "\n{\n";
+  cout << "\nThe first 3d matrix created by hand is:\n{\n";
   for (int i = 0; i < n; i++) {
     data[i] = new int *[m];
     for (int j = 0; j < m; j++) {
@@ -26,7 +26,8 @@ int main() {
   cout << '}';
 
   matrix<int> mat(n, m, p, data);
-  cout << "\n\n{\n";
+  cout << "\n\nThe second 3d matrix created from the one that was created by "
+       << "hand is:\n{\n";
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < m; j++) {
       cout << '\t';
