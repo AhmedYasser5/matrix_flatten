@@ -24,3 +24,11 @@ template <typename T>
 const T &matrix<T>::operator()(const int &i, const int &j, const int &k) const {
   return _data[k + _p * (j + _m * i)];
 }
+
+template <typename T> T &matrix<T>::operator[](const int &y) {
+  return _data[y];
+}
+
+template <typename T> const T &matrix<T>::operator[](const int &y) const {
+  return _data[y];
+}
