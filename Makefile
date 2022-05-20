@@ -6,14 +6,11 @@ INCDIR := ./include
 OBJDIR := ./build/obj
 DEPDIR := ./build/deps
 BINDIR := .
+
 TARGET := $(BINDIR)/Matrix_Flatten.exe
 
 MY_PATHS := $(BINDIR) $(INCDIR)
 MY_FLAGS := 
-
-###### extra variables #######
-MY_PATHS += $(shell cat .my_paths 2>/dev/null)
-MY_FLAGS += $(shell cat .my_flags 2>/dev/null)
 
 ###### complier set-up ######
 CC = gcc
