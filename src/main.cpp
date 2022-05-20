@@ -4,6 +4,8 @@
 using namespace std;
 
 int main() {
+  cout << "Enter the 3d matrix size (n m p):\n\t" << flush;
+
   int n, m, p;
   cin >> n >> m >> p;
 
@@ -26,8 +28,8 @@ int main() {
   cout << '}';
 
   matrix<int> mat(n, m, p, data);
-  cout << "\n\nThe second 3d matrix created from the one that was created by "
-       << "hand is:\n{\n";
+  cout << "\n\nThe second 3d matrix created using the class from the one that "
+       << "was created by hand is:\n{\n";
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < m; j++) {
       cout << '\t';
