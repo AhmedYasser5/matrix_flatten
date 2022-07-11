@@ -5,11 +5,11 @@ This small library permits you to access 1d vectors as if they were 3d matrices.
 To get started, you need to compile (then run) the demo code (src/main.cpp) using one of the following approaches:
 
 ```shell
-./compile_and_run.sh
+./compile_and_run.sh -r
 ```
 
 OR
 
 ```shell
-make run
+make RELEASE=1 run
 ```
